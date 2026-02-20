@@ -18,14 +18,6 @@ export const education: EducationMilestone[] = [
         type: "project",
     },
     {
-        title: "Net Practice — World Record",
-        institution: "42 Istanbul",
-        description:
-            "Achieved a world record in the networking project. Mastered IP addressing, subnetting, and routing tables.",
-        date: "2025",
-        type: "achievement",
-    },
-    {
         title: "Minishell",
         institution: "42 Istanbul",
         description:
