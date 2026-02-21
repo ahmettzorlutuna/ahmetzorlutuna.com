@@ -24,6 +24,7 @@ export type ProjectCategory =
     | "mobile"
     | "web"
     | "systems"
+    | "it-infrastructure"
     | "other";
 
 /** Represents a skill or technology */
