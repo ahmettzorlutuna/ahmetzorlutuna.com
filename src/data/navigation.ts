@@ -20,6 +20,11 @@ export const socialLinks: SocialLink[] = [
         icon: "linkedin",
     },
     {
+        platform: "X (Twitter)",
+        url: "https://x.com/ahmetzorlutuna",
+        icon: "twitter",
+    },
+    {
         platform: "42 Intra",
         url: "https://profile.intra.42.fr/users/azorlutu",
         icon: "school",
