@@ -21,7 +21,7 @@ export function Navbar() {
                     className="font-mono text-sm font-bold tracking-tight text-foreground
                      transition-colors hover:text-primary"
                 >
-                    az<span className="text-muted-foreground">.</span>
+                    azorlutu<span className="text-muted-foreground">.</span>
                 </Link>
 
                 {/* Desktop Nav Links */}
