@@ -217,6 +217,10 @@ export default function HomePage() {
               <p className="text-sm text-muted-foreground">42 Projects</p>
             </div>
             <div>
+              <p className="font-mono text-3xl font-bold">2+</p>
+              <p className="text-sm text-muted-foreground">Side Projects</p>
+            </div>
+            <div>
               <p className="font-mono text-3xl font-bold">1</p>
               <p className="text-sm text-muted-foreground">Published App</p>
             </div>
