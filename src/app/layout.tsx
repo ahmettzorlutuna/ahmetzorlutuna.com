@@ -15,35 +15,67 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const BASE_URL = "https://ahmetzorlutuna.com";
+
 export const metadata: Metadata = {
   title: {
-    default: "Ahmet Zorlutuna — Developer",
+    default: "Ahmet Zorlutuna | Full Stack Developer & IT Consultant",
     template: "%s | Ahmet Zorlutuna",
   },
   description:
-    "Full-stack developer & 42 student. Building software with C, Swift, and TypeScript. Explore my projects, skills, and journey.",
+    "Portfolio of Ahmet Zorlutuna, a Full Stack Developer, 42 School Cadet, and IT Infrastructure Consultant. Creator of the AI-powered Tuna Health app and builder of scalable systems.",
   keywords: [
-    "developer",
-    "portfolio",
-    "42 school",
-    "full-stack",
-    "Swift",
-    "C",
-    "TypeScript",
+    "Full Stack Developer",
+    "Software Engineer",
     "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "React",
+    "C",
+    "C++",
+    "42 School",
+    "IT Consultant",
+    "AI Integration",
+    "Product Builder",
   ],
-  authors: [{ name: "Ahmet Zorlutuna" }],
+  authors: [{ name: "Ahmet Zorlutuna", url: BASE_URL }],
+  creator: "Ahmet Zorlutuna",
+  metadataBase: new URL(BASE_URL),
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: BASE_URL,
     siteName: "Ahmet Zorlutuna",
-    title: "Ahmet Zorlutuna — Developer",
+    title: "Ahmet Zorlutuna | Full Stack Developer & IT Consultant",
     description:
-      "Full-stack developer & 42 student. Building software with C, Swift, and TypeScript.",
+      "Full Stack Developer, 42 School Cadet, and IT Consultant. Building scalable systems with TypeScript, C/C++, and modern web technologies.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ahmet Zorlutuna — Full Stack Developer & IT Consultant",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ahmet Zorlutuna | Full Stack Developer & IT Consultant",
+    description:
+      "Full Stack Developer, 42 School Cadet, and IT Consultant. Creator of Tuna Health.",
+    creator: "@AhmetZorlutuna",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
