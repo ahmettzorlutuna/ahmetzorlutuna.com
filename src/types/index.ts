@@ -48,7 +48,8 @@ export interface EducationMilestone {
     institution: string;
     description: string;
     date: string;
-    type: "project" | "achievement" | "certification" | "milestone";
+    type: "project" | "achievement" | "certification" | "milestone" | "academic";
+    technicalChallenge?: string;
 }
 
 /** Represents a work experience entry */
@@ -58,7 +59,8 @@ export interface Experience {
     description: string;
     technologies: string[];
     startDate: string;
-    endDate?: string; // undefined = current position
+    endDate?: string;
+    location?: string;
 }
 
 /** Navigation link type */
