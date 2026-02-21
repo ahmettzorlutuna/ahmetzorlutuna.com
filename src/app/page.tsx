@@ -35,11 +35,13 @@ export default function HomePage() {
 
           {/* Subheading */}
           <p className="max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Full-stack developer & 42 student. I build things with{" "}
-            <span className="font-medium text-foreground">C</span>,{" "}
-            <span className="font-medium text-foreground">Swift</span>, and{" "}
-            <span className="font-medium text-foreground">TypeScript</span> —
-            from raycasting engines to AI-powered iOS apps.
+            Software Developer | IT & Network Specialist | Cadet at 42 Istanbul. 
+            I build things with{" "}
+            <span className="font-medium text-foreground">Javascript</span>,{" "}
+            <span className="font-medium text-foreground">TypeScript</span>,{" "}
+            <span className="font-medium text-foreground">C</span> and {" "}
+            <span className="font-medium text-foreground">C++</span>{" "}
+            from raycasting engines and my own shell to AI-powered iOS and web apps.
           </p>
 
           {/* CTA Buttons */}

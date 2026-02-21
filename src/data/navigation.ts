@@ -10,7 +10,7 @@ export const navLinks: NavLink[] = [
 export const socialLinks: SocialLink[] = [
     {
         platform: "GitHub",
-        url: "https://github.com/ahmetzorlutuna",
+        url: "https://github.com/ahmettzorlutuna",
         icon: "github",
     },
     {
@@ -20,7 +20,7 @@ export const socialLinks: SocialLink[] = [
     },
     {
         platform: "42 Intra",
-        url: "https://profile.intra.42.fr/users/azorlute",
+        url: "https://profile.intra.42.fr/users/azorlutu",
         icon: "school",
     },
 ];
