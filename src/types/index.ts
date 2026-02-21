@@ -41,6 +41,7 @@ export type SkillCategory =
     | "tools"
     | "databases"
     | "devops"
+    | "infrastructure"
     | "other";
 
 /** Represents a milestone in the education timeline */
