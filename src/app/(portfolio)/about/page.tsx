@@ -16,9 +16,6 @@ export const metadata: Metadata = {
         "Software Engineer, 42 Istanbul student, and IT consultant with 5+ years of professional experience in network architecture and security systems.",
 };
 
-/* ──────────────────────────────────────────────
-   "What I Do" pillar data
-   ────────────────────────────────────────────── */
 const PILLARS = [
     {
         icon: <Cpu className="h-5 w-5" />,
@@ -45,30 +42,30 @@ const PILLARS = [
 
 export default function AboutPage() {
     return (
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-5xl px-6 relative z-10">
             {/* ─── Intro Section ─── */}
             <section className="py-20">
-                <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                <p className="text-sm font-medium uppercase tracking-wider text-primary drop-shadow-sm">
                     About
                 </p>
-                <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                <h1 className="mt-3 text-4xl font-extrabold tracking-tighter sm:text-5xl lg:text-6xl text-foreground">
                     Software Engineer.{" "}
-                    <span className="text-muted-foreground">42 Student.</span>{" "}
+                    <span className="bg-gradient-to-r from-primary to-emerald-400 bg-clip-text text-transparent">42 Student.</span>{" "}
                     <br className="hidden sm:block" />
                     IT Consultant.
                 </h1>
 
-                <div className="mt-8 max-w-prose space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                <div className="mt-8 max-w-prose space-y-6 text-lg leading-relaxed text-muted-foreground">
                     <p>
                         I&apos;m a full-stack developer whose engineering mindset was
                         forged at{" "}
-                        <span className="font-medium text-foreground">42 Istanbul</span>{" "}
+                        <span className="font-semibold text-foreground">42 Istanbul</span>{" "}
                         — a peer-to-peer coding school with no teachers, no classes, and
                         no textbooks. Everything I know, I built by solving real problems.
                     </p>
                     <p>
                         Before 42, I graduated with an Associate&apos;s degree in{" "}
-                        <span className="font-medium text-foreground">
+                        <span className="font-semibold text-foreground">
                             Computer Programming
                         </span>{" "}
                         from Atatürk University, where I built my foundation in data
@@ -79,7 +76,7 @@ export default function AboutPage() {
                     </p>
                     <p>
                         Alongside my studies, I&apos;ve been running{" "}
-                        <span className="font-medium text-foreground">
+                        <span className="font-semibold text-foreground">
                             Balkan Güvenlik Sistemleri
                         </span>{" "}
                         since 2020 — and consulting for Kenan Metal A.Ş. as an IT and security infrastructure company serving
@@ -89,7 +86,7 @@ export default function AboutPage() {
                     </p>
                     <p>
                         I&apos;m also pursuing a{" "}
-                        <span className="font-medium text-foreground">
+                        <span className="font-semibold text-foreground">
                             Business Administration
                         </span>{" "}
                         degree at Anadolu University — a strategic choice to bridge
@@ -98,35 +95,41 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* ─── What I Do ─── */}
-            <section className="border-t border-border/40 py-20">
-                <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            {/* ─── What I Do (Asymmetrical Bento) ─── */}
+            <section className="border-t border-white/10 py-20 pb-24">
+                <p className="text-sm font-medium uppercase tracking-wider text-primary drop-shadow-sm">
                     Expertise
                 </p>
-                <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tighter sm:text-4xl text-foreground">
                     What I Do
                 </h2>
 
-                <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {PILLARS.map((pillar) => (
+                <div className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-4">
+                    {PILLARS.map((pillar, idx) => (
                         <div
                             key={pillar.title}
-                            className="rounded-xl border border-border/60 bg-card p-6 transition-all hover:border-border hover:shadow-sm"
+                            className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.07] hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.2)]
+                            ${idx === 0 ? "md:col-span-2 lg:col-span-2 lg:row-span-2 p-8" : ""}
+                            ${idx === 1 ? "md:col-span-1 lg:col-span-2" : ""}
+                            ${idx === 2 ? "md:col-span-3 lg:col-span-2" : ""}
+                            `}
                         >
-                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground">
+                            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm">
                                 {pillar.icon}
                             </div>
-                            <h3 className="mt-4 text-base font-semibold tracking-tight">
+                            <h3 className={`mt-5 font-bold tracking-tight text-foreground ${idx === 0 ? "text-2xl" : "text-xl"}`}>
                                 {pillar.title}
                             </h3>
-                            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
                                 {pillar.description}
                             </p>
-                            <div className="mt-4 flex flex-wrap gap-1.5">
+                            <div className="mt-5 flex flex-wrap gap-2">
                                 {pillar.tags.map((tag) => (
                                     <span
                                         key={tag}
-                                        className="rounded-md border border-border/60 px-2 py-0.5 font-mono text-xs text-muted-foreground"
+                                        className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-xs font-medium text-muted-foreground backdrop-blur-sm"
                                     >
                                         {tag}
                                     </span>
@@ -138,18 +141,20 @@ export default function AboutPage() {
             </section>
 
             {/* ─── Tuna Health Spotlight ─── */}
-            <section className="border-t border-border/40 py-20">
-                <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            <section className="border-t border-white/10 py-20">
+                <p className="text-sm font-medium uppercase tracking-wider text-primary drop-shadow-sm">
                     Flagship Product
                 </p>
-                <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tighter sm:text-4xl text-foreground">
                     Tuna Health
                 </h2>
 
-                <div className="mt-8 rounded-xl border border-border/60 bg-card p-6 sm:p-8">
-                    <div className="grid gap-8 lg:grid-cols-[1fr_auto]">
-                        <div className="space-y-4">
-                            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
+                <div className="mt-10 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 sm:p-12 backdrop-blur-md shadow-2xl">
+                    <div className="absolute top-0 right-0 -z-10 h-[300px] w-[300px] bg-primary/20 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3" />
+
+                    <div className="grid gap-12 lg:grid-cols-[1fr_auto]">
+                        <div className="space-y-6">
+                            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-400 backdrop-blur-sm shadow-[0_0_15px_rgba(16,185,129,0.2)]">
                                 <span className="relative flex h-1.5 w-1.5">
                                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -157,11 +162,11 @@ export default function AboutPage() {
                                 Live on App Store
                             </div>
 
-                            <p className="text-sm font-medium text-muted-foreground">
+                            <p className="text-sm font-semibold tracking-wider text-primary uppercase">
                                 Founder & Lead Developer
                             </p>
 
-                            <p className="max-w-prose text-base leading-relaxed text-muted-foreground sm:text-lg">
+                            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl font-medium">
                                 An AI-powered food safety & allergy shield for iOS. Tuna
                                 scans ingredient labels using high-precision OCR and
                                 Google&apos;s Gemini API to detect allergens, classify foods
@@ -169,7 +174,7 @@ export default function AboutPage() {
                                 profiles.
                             </p>
 
-                            <div className="flex flex-wrap gap-1.5">
+                            <div className="flex flex-wrap gap-2 pt-2">
                                 {[
                                     "Swift",
                                     "SwiftUI",
@@ -180,134 +185,126 @@ export default function AboutPage() {
                                 ].map((tech) => (
                                     <span
                                         key={tech}
-                                        className="rounded-md border border-border/60 px-2 py-0.5 font-mono text-xs text-muted-foreground"
+                                        className="rounded-lg border border-white/10 bg-white/5 px-3 py-1 font-mono text-sm text-muted-foreground backdrop-blur-sm"
                                     >
                                         {tech}
                                     </span>
                                 ))}
                             </div>
 
-                            <div className="flex flex-wrap items-center gap-3 pt-2">
+                            <div className="flex flex-wrap items-center gap-4 pt-6">
                                 <Link
                                     href="https://apps.apple.com/tr/app/tuna-scan-food-stay-safe/id6757370781?l=tr"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                                    className="group relative inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:-translate-y-0.5"
                                 >
                                     App Store
-                                    <ExternalLink className="h-3.5 w-3.5" />
+                                    <ExternalLink className="h-4 w-4" />
                                 </Link>
                                 <Link
                                     href="https://www.tunahealth.app/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+                                    className="group inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5"
                                 >
                                     Official Website
-                                    <ArrowRight className="h-3.5 w-3.5" />
+                                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                                 </Link>
                             </div>
                         </div>
 
-                        {/* Key Features */}
-                        <div className="flex flex-wrap gap-6 lg:flex-col lg:gap-8">
-                            <div>
-                                <p className="font-mono text-2xl font-bold">AI</p>
-                                <p className="text-sm text-muted-foreground">
-                                    Allergen Detection
-                                </p>
-                            </div>
-                            <div>
-                                <p className="font-mono text-2xl font-bold">NOVA</p>
-                                <p className="text-sm text-muted-foreground">
-                                    Food Classification
-                                </p>
-                            </div>
-                            <div>
-                                <p className="font-mono text-2xl font-bold">OCR</p>
-                                <p className="text-sm text-muted-foreground">
-                                    Label Scanning
-                                </p>
-                            </div>
+                        {/* Key Features (Vertical Glassmorphism Cards) */}
+                        <div className="flex flex-wrap gap-4 lg:flex-col justify-center">
+                            {[
+                                { title: "AI", desc: "Allergen Detection" },
+                                { title: "NOVA", desc: "Food Classification" },
+                                { title: "OCR", desc: "Label Scanning" },
+                            ].map((feature) => (
+                                <div key={feature.title} className="rounded-xl border border-white/5 bg-white/5 p-5 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-primary/20">
+                                    <p className="font-mono text-3xl font-extrabold text-foreground drop-shadow-md">{feature.title}</p>
+                                    <p className="text-sm font-medium text-muted-foreground mt-1">{feature.desc}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* ─── Journey Timeline ─── */}
-            <section className="border-t border-border/40 py-20">
-                <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            <section className="border-t border-white/10 py-20">
+                <p className="text-sm font-medium uppercase tracking-wider text-primary drop-shadow-sm">
                     Timeline
                 </p>
-                <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tighter sm:text-4xl text-foreground">
                     My Journey
                 </h2>
-                <p className="mt-3 max-w-prose text-muted-foreground">
+                <p className="mt-4 max-w-prose text-lg text-muted-foreground leading-relaxed">
                     From Computer Programming fundamentals to building production
                     software — a chronological path through academics, engineering, and
                     professional work.
                 </p>
 
-                <div className="mt-10">
+                <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
                     <Timeline education={education} experience={experience} />
                 </div>
             </section>
 
             {/* ─── Currently ─── */}
-            <section className="border-t border-border/40 py-20">
-                <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            <section className="border-t border-white/10 py-20 pb-32">
+                <p className="text-sm font-medium uppercase tracking-wider text-primary drop-shadow-sm">
                     Right Now
                 </p>
-                <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tighter sm:text-4xl text-foreground">
                     What I&apos;m Working On
                 </h2>
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    <div className="rounded-xl border border-border/60 bg-card p-6">
-                        <p className="font-mono text-xs text-muted-foreground">
+                <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/30 hover:-translate-y-1 hover:shadow-lg">
+                        <p className="font-mono text-xs font-semibold text-primary uppercase tracking-wider mb-3">
                             42 Istanbul
                         </p>
-                        <h3 className="mt-2 text-base font-semibold">
+                        <h3 className="text-lg font-bold text-foreground">
                             C++ Modules & Advanced OOP
                         </h3>
-                        <p className="mt-2 text-sm text-muted-foreground">
+                        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                             Orthodox Canonical Form, templates, STL containers, and
                             memory safety without garbage collection.
                         </p>
                     </div>
-                    <div className="rounded-xl border border-border/60 bg-card p-6">
-                        <p className="font-mono text-xs text-muted-foreground">
+                    <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/30 hover:-translate-y-1 hover:shadow-lg">
+                        <p className="font-mono text-xs font-semibold text-primary uppercase tracking-wider mb-3">
                             Anadolu University
                         </p>
-                        <h3 className="mt-2 text-base font-semibold">
+                        <h3 className="text-lg font-bold text-foreground">
                             Business Administration
                         </h3>
-                        <p className="mt-2 text-sm text-muted-foreground">
+                        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                             Bridging engineering and business strategy — understanding
                             the commercial impact of technical decisions.
                         </p>
                     </div>
-                    <div className="rounded-xl border border-border/60 bg-card p-6">
-                        <p className="font-mono text-xs text-muted-foreground">
+                    <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/30 hover:-translate-y-1 hover:shadow-lg">
+                        <p className="font-mono text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-3">
                             Side Project
                         </p>
-                        <h3 className="mt-2 text-base font-semibold">
+                        <h3 className="text-lg font-bold text-foreground">
                             This Portfolio
                         </h3>
-                        <p className="mt-2 text-sm text-muted-foreground">
+                        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                             Built with Next.js 16, Tailwind CSS v4, TypeScript, and
                             deployed on Vercel. You&apos;re looking at it.
                         </p>
                     </div>
                 </div>
 
-                <div className="mt-10">
+                <div className="mt-12 text-center sm:text-left">
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                        className="group inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-sm font-bold text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:-translate-y-0.5"
                     >
                         Get in Touch
-                        <ArrowRight className="h-4 w-4" />
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                 </div>
             </section>
